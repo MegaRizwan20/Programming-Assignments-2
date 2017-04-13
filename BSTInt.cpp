@@ -27,16 +27,14 @@ bool BSTInt::insert(int item)
 		++isize;
 		return true;
 	}
-
+	/*edit*/
 	else {
 		BSTNodeInt* curr = root;
-		while (curr->left || curr->right) {
+		while (curr) {
 			if (item < curr->data && curr->left != NULL) {
-				//			curr_parr = curr;
 				curr = curr->left;
 			}
 			else if (curr->data < item && curr->right != NULL) {
-				//			curr_parr = curr;
 				curr = curr->right;
 			}
 
@@ -160,12 +158,12 @@ void BSTInt::deleteAll(BSTNodeInt* n)
 	if (n == NULL)
 		return;
 	if(n->left != NULL) 
-		 (deleteAll(n->left));
+		(deleteAll(n->left));
 	if(n->right != NULL)
 		(deleteAll(n->right));
 
-//	delete n;
-//	n = nullptr;
+		delete n;
+	//	n = nullptr;
 	return;		
 }
 
