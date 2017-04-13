@@ -40,6 +40,8 @@ int main() {
         }
     }
 
+	
+
 
     /* Test size. */
     cout << "Size is: " << b.size() << endl;
@@ -56,13 +58,13 @@ int main() {
             return -1;
         }
     }
-
+	cout << "Finished first part\n";
 
     /* UNCOMMENT THE LINES BELOW TO TEST THE TEMPLATE-BASED ITERATOR */
 
-    /*
+    
     // Test the template version of the BST  with ints 
-    BST<int> btemp;
+ /*   BST<int> btemp;
     for (int item : v) {
         // The auto type here is the pair of BSTIterator<int>, bool
         cout << "Inserting " << item << " into the int template-based BST...";
@@ -127,11 +129,38 @@ int main() {
     }
 
     cout << "success!" << endl;
-
-    */
+*/
+    
 
     // ADD MORE TESTS HERE.  You might also want to change what is input
     // into the vector v.
+
+   // Could use: for(auto item : v) { instead of the line below
+    for(int item : v) {
+        bool pr = b.insert(item);
+        if(! pr ) {
+            cout << "Incorrect bool return value when inserting " << item 
+                 << endl;
+            return -1;
+        }
+    }
+
+    /* Test height. */
+    cout << "Height is: " << b.height() << endl;
+    if(b.height() != 3) {
+        cout << "... which is incorrect." << endl;
+        return -1;
+    }
+
+    /* Test find return value. */
+    // Test the items that are already in the tree
+    for(int item : v) {
+        if(!b.find(item)) {
+            cout << "Incorrect return value when finding " << item << endl;
+            return -1;
+        }
+    }
+
 
     cout << "All tests passed!" << endl;
     return 0;

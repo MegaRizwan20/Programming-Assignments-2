@@ -1,0 +1,24 @@
+1. Typing 'make bst' creates testBST.o, BSTInt.o and BSTNodeInt.o
+
+2. 
+g++      -g -Wall -std=c++11 -c BSTInt.cpp
+BSTInt.cpp: In function 'bool insert(int)':
+BSTInt.cpp:25:8: error: 'root' was not declared in this scope
+   if (!root) {
+        ^
+BSTInt.cpp:27:7: error: 'isize' was not declared in this scope
+     ++isize;
+       ^
+BSTInt.cpp:31:22: error: 'root' was not declared in this scope
+   BSTNodeInt* curr = root;
+                      ^
+BSTInt.cpp:56:5: error: 'isize' was not declared in this scope
+   ++isize;
+     ^
+make: *** [BSTInt.o] Error 1
+[1]+  Done                    gvim BSTInt.cpp
+
+The error that occurs is because the variables that are used are not
+declared within the function. These variables were declared in the BSTInt
+function, which is why the function was able to run before. 
+
