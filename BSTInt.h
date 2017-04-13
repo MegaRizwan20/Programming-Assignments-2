@@ -57,6 +57,7 @@ public:
       Height of tree with just root node is 0
    */
   int height() const;
+int heightHelper(BSTNodeInt* nodePtr) const;
 
 
   /** Return true if the BST is empty, else false. 

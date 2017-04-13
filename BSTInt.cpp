@@ -30,15 +30,15 @@ bool BSTInt::insert(int item)
 	else {
 
 		BSTNodeInt* curr = root;
-	//	BSTNodeInt* curr_parr;
+		//	BSTNodeInt* curr_parr;
 		//	while (!curr) {
 		while (curr->left && curr->right) {
 			if (item < curr->data/* && curr->left != NULL*/) {
-	//			curr_parr = curr;
+				//			curr_parr = curr;
 				curr = curr->left;
 			}
 			else if (curr->data < item/* && curr->right != NULL*/) {
-	//			curr_parr = curr;
+				//			curr_parr = curr;
 				curr = curr->right;
 			}
 			else {
@@ -111,14 +111,20 @@ bool BSTInt::insert(int item)
 	/** Return the height of the BST.
 	  Height of tree with just root node is 0
 	  */
-	int BSTInt::height(BSTNodeInt* nodePtr) const
+	int BSTInt::height() const
 	{
+		return (heightHelper(root));		
+	}
+
+	int BSTInt::heightHelper(BSTNodeInt* nodePtr) const {
+		int leftHeight = 0;
+		int rightHeight = 0;
 		if (nodePtr == NULL)
 			return 0;
 
 		else {
-			int leftHeight const = height(nodePtr -> left);
-			int rightHeight const = height(nodePtr -> right);
+			leftHeight = heightHelper(nodePtr -> left);
+			rightHeight = heightHelper(nodePtr -> right);
 		}	
 		leftHeight++;
 		rightHeight++;
@@ -128,6 +134,7 @@ bool BSTInt::insert(int item)
 		}
 		else
 			return rightHeight;
+
 	}
 
 
@@ -153,5 +160,7 @@ bool BSTInt::insert(int item)
 	void BSTInt::deleteAll(BSTNodeInt* n)
 	{
 		// TODO
+
+
 	}
 
