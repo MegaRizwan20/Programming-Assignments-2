@@ -22,3 +22,18 @@ The error that occurs is because the variables that are used are not
 declared within the function. These variables were declared in the BSTInt
 function, which is why the function was able to run before. 
 
+3. 
+This line from the 'insert' method is the cause of the problem:
+while (curr->left && curr->right) {
+This statement makes it so that you are only
+able to add nodes if the parent node has 2 children node, which is a 
+problem, because sometimes you can still add a node when the parent only
+has a single child. 
+
+4. 
+According to the write-up, the error is either in the 'insert' or the 'find' 
+method, so I started off looking at the 'insert' method. I came up with random
+numbers to test out to try to replicate the process line by line. It was when
+I got to the buggy line, that I realized that it was the problem. I made
+various BST's that already contained numbers, and I tried adding new numbers to
+those BST's. That was helpful in helping me find the problem. 

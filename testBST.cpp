@@ -33,6 +33,8 @@ int main() {
     // Could use: for(auto item : v) { instead of the line below
     for(int item : v) {
         bool pr = b.insert(item);
+	 cout << "Sucessfully inserted " << item << endl;
+
         if(! pr ) {
             cout << "Incorrect bool return value when inserting " << item 
                  << endl;
@@ -136,14 +138,14 @@ int main() {
     // into the vector v.
 
    // Could use: for(auto item : v) { instead of the line below
-    for(int item : v) {
-        bool pr = b.insert(item);
+   int insertVar = 15;
+     bool pr = b.insert(insertVar);
         if(! pr ) {
-            cout << "Incorrect bool return value when inserting " << item 
+            cout << "Incorrect bool return value when inserting " << insertVar 
                  << endl;
             return -1;
         }
-    }
+    
 
     /* Test height. */
     cout << "Height is: " << b.height() << endl;
@@ -155,13 +157,20 @@ int main() {
     /* Test find return value. */
     // Test the items that are already in the tree
     for(int item : v) {
+	  //  if(!b.find(8)) {
+       //     cout << "Find returns " << b.find(-33) << endl;
+        //    return -1; 
+
+
         if(!b.find(item)) {
             cout << "Incorrect return value when finding " << item << endl;
-            return -1;
+      //      return -1;
         }
     }
+	/* Test deleteAll() */
+	b.~BSTInt();
 
-
+	
     cout << "All tests passed!" << endl;
     return 0;
 }
