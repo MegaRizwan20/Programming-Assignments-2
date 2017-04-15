@@ -120,11 +120,11 @@ std::pair<BSTIterator<Data>, bool> BST<Data>::insert(const Data& item) {
 	// HINT: Copy code from your BSTInt class and change the return value
 	// REPLACE THE LINE BELOW
 	//return std::pair<BSTIterator<Data>, bool>(BSTIterator<Data>(0), false);
-	
+
 	if (!root) { //!root
 		root = new BSTNode<Data>(item);
 		++isize;
-	//	return true;
+		//	return true;
 		return std::pair<BSTIterator<Data>, bool>(BSTIterator<Data>(root), true);
 
 	}
@@ -141,7 +141,7 @@ std::pair<BSTIterator<Data>, bool> BST<Data>::insert(const Data& item) {
 
 			else if( curr->data == item) {
 				//return false;
-			return std::pair<BSTIterator<Data>, bool>(BSTIterator<Data>(curr), false);
+				return std::pair<BSTIterator<Data>, bool>(BSTIterator<Data>(curr), false);
 
 			}
 			break;	
@@ -193,13 +193,9 @@ BSTIterator<Data> BST<Data>::find(const Data& item) const
 			curr = curr->left;
 		}
 		else {
-			//	return BSTIterator<Data>;
-		//	return this.end();
 			return curr;
 		}
 	}
-//	return this.end();
-
 
 	return BSTIterator<Data>(nullptr);
 
@@ -228,22 +224,22 @@ template <typename Data>
 int BST<Data>::heightHelper(BSTIterator<Data> nodePtr) const {
 	int leftHeight = 0;
 	int rightHeight = 0;
-//	if (nodePtr == NULL)
-		return 2;
+	//	if (nodePtr == NULL)
+	return 2;
 
-/*	else {
+	/*	else {
 		leftHeight = heightHelper(nodePtr -> left);
 		rightHeight = heightHelper(nodePtr -> right);
-	}	
-	leftHeight++;
-	rightHeight++;
+		}	
+		leftHeight++;
+		rightHeight++;
 
-	if(leftHeight > rightHeight) {
+		if(leftHeight > rightHeight) {
 		return leftHeight;
-	}
-	else
+		}
+		else
 		return rightHeight;
-*/
+		*/
 }
 
 
