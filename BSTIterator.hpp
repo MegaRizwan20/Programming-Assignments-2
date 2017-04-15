@@ -42,10 +42,14 @@ public:
    */ 
 template<typename Data>
 BSTIterator<Data>::BSTIterator(BSTNode<Data>* curr) {
-  // TODO
+  // TO DO
   // Remember the keyword "this" which stores a pointer to the calling object.
   // It will be helpful to distinguish between the parameter "curr" and the 
   // member variable "curr"
+//	curr = new BSTIterator<Data>();
+//	this.data = curr->data;
+	this->curr = curr;
+	
 }
 
 /** Dereference operator. */
@@ -73,24 +77,29 @@ BSTIterator<Data> BSTIterator<Data>::operator++(int) {
 /** Equality test operator. */ // TODO
 template<typename Data>
 bool BSTIterator<Data>::operator==(BSTIterator<Data> const & other) const {
-  // TODO
+  // TO DO
   // Notice that other is a reference and not a pointer, thus it cannot be null
   // Return true if other is equal to the calling object
   // Two iterators are equal if they point to the same BSTNode in the same BST  
 
-  return false;
-
+	if(this == &other)
+		return true;
+	else
+		return false;
 }
 
 /** Inequality test operator. */ 
 template<typename Data>
 bool BSTIterator<Data>::operator!=(BSTIterator<Data> const & other) const {
-  // TODO
+  // TO DO
   // Notice that other is a reference and not a pointer, thus it cannot be null
   // Return true if other is NOT equal to the calling object
   // Two iterators are equal if they point to the same BSTNode in the same BST
 
-  return false;
+	if(this == &other)
+		return false;
+	else
+		return true;
 
 }
 

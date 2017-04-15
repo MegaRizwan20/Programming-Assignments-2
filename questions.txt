@@ -36,4 +36,25 @@ method, so I started off looking at the 'insert' method. I came up with random
 numbers to test out to try to replicate the process line by line. It was when
 I got to the buggy line, that I realized that it was the problem. I made
 various BST's that already contained numbers, and I tried adding new numbers to
-those BST's. That was helpful in helping me find the problem. 
+those BST's. That was helpful in helping me find the problem.
+
+5. 
+BSTInt.h passes by reference, and the insert in BST.hpp passes by reference. 
+BSTInt.h and BST.hpp pass by reference, because you want a copy of the value 
+inserted, rather than the actual value itself.
+
+6. I noticed that the sorted list of actors produced a taller tree
+
+7. I predict that a sorted tree will have a height of N, for N number of elements
+A random tree will have a height of log2(N). This is because a sorted list will
+have the root at the first input, and since all of the inputs after that is 
+larger, it will all go to the right nodes of each element. The random list,
+however, will be more likely to have a root in the middle, which will allow for 
+the tree to expand horizontally rather than vertically. Since there are 2 child
+nodes each, the tree will likely have a length of log2(N), since the elements
+will expand horizontally. 
+
+I tried out various values, and the result confirms my conclusion. For example,
+when I had 10 elements, the sorted tree had height of 10, and the random tree 
+had a height of 4. The same result occured when I had 50 elements. The sorted
+tree had a height of 50, and the random one had 5. 
