@@ -35,6 +35,7 @@ int main(int argc, char** argv)
   words.push_back("cse");
   words.push_back("crucio");
   words.push_back("autocomplete");
+  words.push_back("the cat");
   
   
   cout << "Inserting into Dictionaries..." << endl;
@@ -105,9 +106,6 @@ int main(int argc, char** argv)
   cout << "TESTING FIND METHOD " << endl;
   findCheck = dt.find("autocomplete");
 
-  wit = words.begin();
-  wen = words.end();
-  //findCheck = dt.find("autocomplete");
   if (findCheck == true)
   {
     cout << "Found harry " << endl;
@@ -115,6 +113,50 @@ int main(int argc, char** argv)
   else
   {
     cout << "did not find harry " << endl;
+  }
+
+
+
+  findCheck = dt.find("auto");
+  if (findCheck == false)
+  {
+    cout << "Passed for auto" << endl;
+  }
+  else
+  {
+    cout << "Failed auto " << endl;
+  }
+
+
+
+  findCheck = dt.find("sriram");
+  if (findCheck == true)
+  {
+    cout << "Passed for sriram" << endl;
+  }
+  else
+  {
+    cout << "Failed sriram " << endl;
+  }
+
+  findCheck = dt.find("the cat");
+  if (findCheck == true)
+  {
+    cout << "Passed for 'the cat' "<< endl;
+  }
+  else
+  {
+    cout << "failed for 'the cat' " << endl;
+  } 
+
+  findCheck = dt.find("cat");
+  if (findCheck == false)
+  {
+    cout << "Passed for not finding 'cat' " << endl;
+  }
+  else
+  {
+    cout << "Failed 'cat' " << endl;
   }
 
   cout << endl;

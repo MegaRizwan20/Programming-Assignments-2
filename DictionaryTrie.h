@@ -73,6 +73,8 @@ public:
   /* Destructor */
   ~DictionaryTrie();
 
+  static void deleteAll(TSTNode* t);
+
 private:
   // Add your own data members and methods here
   // CODE WE ADDED

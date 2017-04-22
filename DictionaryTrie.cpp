@@ -174,8 +174,8 @@ bool DictionaryTrie::find(std::string word) const
   unsigned int i = 0;
   while (curr)
   {
-    cout << "CURR IS " << curr->data << endl;
-    cout << "THE WORD IS " << word[i] << endl;
+    //cout << "CURR IS " << curr->data << endl;
+    //cout << "THE WORD IS " << word[i] << endl;
     if (word[i] == curr->data)
     {
       if (word.length() - 1 == i && curr->nodeCheck == true)
@@ -197,12 +197,12 @@ bool DictionaryTrie::find(std::string word) const
     {
       //cout << "The 
       curr = curr->left;
-      i++;
+      //i++;
     }
     else if (curr->data < word[i])
     {
       curr = curr->right;
-      i++;
+      //i++;
     }
   }
   return false;
@@ -226,7 +226,20 @@ unsigned int num_completions)
 }
 
 /* Destructor */
-DictionaryTrie::~DictionaryTrie(){}
+DictionaryTrie::~DictionaryTrie(){
+  deleteAll(root);
+}
+
+void DictionaryTrie::deleteAll(TSTNode* t)
+{
+  if (t)
+  {
+    deleteAll(t->left);
+    deleteAll(t->right);
+    deleteAll(t->middle);
+    delete t;
+  }
+}
 
 /* Constructor for the Nodes in the TST */
 //TSTNode::TSTNode(char & c) : left(NULL), middle(NULL), right(NULL), parent(NULL), data(c) {}
