@@ -1,35 +1,25 @@
-# A simple makefile for CSE 100 P1
+# A simple makefile for CSE 100 P3
 
-#use g++ for everything
-CC= g++  	
+CC=g++
+CXXFLAGS=-std=c++11 -g -Wall
+LDFLAGS=-g
 
-# include debugging symbols in object files,
-# and enable all warnings
-FLAGS= -g -Wall -std=c++11
+all: test util.o
 
-BSTOBJ=  BSTInt.o BSTNodeInt.o
+test: util.o DictionaryTrie.o DictionaryBST.o DictionaryHashtable.o
 
-BSTHPP= BST.hpp BSTNode.hpp BSTIterator.hpp
+benchdict: util.o DictionaryTrie.o DictionaryBST.o DictionaryHashtable.o
 
-all: bst main
+benchhash: util.o DictionaryTrie.o DictionaryBST.o DictionaryHashtable.o
 
-bst: testBST.o $(BSTOBJ) $(BSTHPP)
-	$(CC) $(FLAGS) -o bst testBST.o $(BSTOBJ) $(BSTHPP)
+DictionaryTrie.o: DictionaryTrie.h
 
-main: main.o $(BSTHPP)
-	$(CC) $(FLAGS) -o main main.o $(BSTHPP)
+DictionaryBST.o: DictionaryBST.h
 
-main.o: $(BSTHPP)
-	$(CC) $(FLAGS) -c main.cpp
+DictionaryHashtable.o: DictionaryHashtable.h
 
-testBST.o: testBST.cpp BSTInt.h
-	$(CC) $(FLAGS) -c testBST.cpp
-
-BSTInt.o: BSTInt.cpp BSTInt.h BSTNodeInt.h
-	$(CC) $(FLAGS) -c BSTInt.cpp
-
-BSTNodeInt.o: BSTNodeInt.cpp BSTNodeInt.h
-	$(CC) $(FLAGS) -c BSTNodeInt.cpp
+util.o: util.h
 
 clean:
-	$(RM) main bst *.o
+	rm -f test *.o core* *~
+
