@@ -88,6 +88,7 @@ bool DictionaryTrie::insert(std::string word, unsigned int freq)
         newNode->parent = curr;
         // This means we got to the last letter of the word
         //if (word[j+1] == '\0')
+        //if (word.length() == j)
         if (word.length() == j)
         {
           newNode->freq = freq;
@@ -105,6 +106,7 @@ bool DictionaryTrie::insert(std::string word, unsigned int freq)
     // If what we are trying to insert is bigger than current node
     else if (curr->data < word[j])
     {
+
       if (curr->right == NULL)
       {
         TSTNode* newNode = new TSTNode(word[j], 0);
@@ -127,6 +129,15 @@ bool DictionaryTrie::insert(std::string word, unsigned int freq)
     }
     else if (word[j] == curr->data)
     {
+      //cout << curr->nodeCheck << endl;
+      //cout<< "second else:" << curr->data << endl;
+      /*if (word.length() - 1 == j && curr->nodeCheck == true)
+      {
+        //curr->freq = freq;
+        //curr->nodeCheck = false;
+        return false;
+      }*/
+
       //if (word[j+1] == '\0' && curr->nodeCheck == true)
       if (curr->middle == NULL)
       {
@@ -145,20 +156,29 @@ bool DictionaryTrie::insert(std::string word, unsigned int freq)
       }
       else
       {
+        if (word.length() - 1 == j)
+        {
+          curr->freq = freq;
+          curr->nodeCheck = true;
+          break;
+        }
         curr = curr->middle;
         j++;
       }
+
       if (word.length() - 1 == j && curr->nodeCheck == true)
       {
+        //curr->freq = freq;
+        //curr->nodeCheck = false;
         return false;
       }
     }
-    else
+    /*else
     {
       curr->freq = freq;
       curr->nodeCheck = false;
       return false;
-    }
+    }*/
   }
   return true;
 }
