@@ -23,7 +23,8 @@ bool DictionaryBST::insert(std::string word)
 /* Return true if word is in the dictionary, and false otherwise */
 bool DictionaryBST::find(std::string word) const
 {
-    return(dictBST.end() == dictBST.find(word));}
+    return(dictBST.end() != dictBST.find(word));
+}
 
 /* Destructor */
 DictionaryBST::~DictionaryBST(){}
