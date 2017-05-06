@@ -25,6 +25,8 @@ public:
   int freq;
   char const data;
   bool nodeCheck = false;
+  std::string endNode = "";
+  
   /* Constructor. Initializes a TSTNode with the given char and the frequency
    * of occurences of a word */
   TSTNode(char & c, int f) : left(NULL), middle(NULL), right(NULL), parent(NULL), data(c){};

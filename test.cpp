@@ -1,3 +1,10 @@
+/* 
+ * Authors: Rizwan Khan, Kenton Chick
+ * UCSD Email: rikhan@ucsd.edu, kchick@ucsd.edu
+ * PID: A12236946, A12947178
+ * CSE Login: cs100sgv, kchick
+*/
+
 #include<iostream>
 #include<string>
 #include<algorithm>
@@ -36,6 +43,23 @@ int main(int argc, char** argv)
   words.push_back("crucio");
   words.push_back("autocomplete");
   words.push_back("the cat");
+
+  words.push_back("basketball");
+  words.push_back("asterisk");
+  words.push_back("basket");
+  words.push_back("application");
+  words.push_back("a");
+  words.push_back("app");
+  words.push_back("gugglebee");
+  words.push_back("waldos");
+  words.push_back("are you not entertained");
+  words.push_back("never gonna give you up");
+
+  words.push_back("a a");
+  words.push_back("aa");
+  words.push_back("aaa");
+  words.push_back("aa a");
+  
   
   
   cout << "Inserting into Dictionaries..." << endl;
@@ -104,42 +128,91 @@ int main(int argc, char** argv)
     }
 
   cout << "TESTING FIND METHOD " << endl;
-  findCheck = dt.find("autocomplete");
+  findCheck = dt.find("a");
 
   if (findCheck == true)
   {
-    cout << "Found harry " << endl;
+    cout << "Found a " << endl;
   }
   else
   {
-    cout << "did not find harry " << endl;
+    cout << "did not find a " << endl;
   }
 
 
 
-  findCheck = dt.find("auto");
-  if (findCheck == false)
-  {
-    cout << "Passed for auto" << endl;
-  }
-  else
-  {
-    cout << "Failed auto " << endl;
-  }
+  findCheck = d_bst.find("a a");
 
-
-
-  findCheck = dt.find("sriram");
   if (findCheck == true)
   {
-    cout << "Passed for sriram" << endl;
+    cout << "Found harry a a" << endl;
   }
   else
   {
-    cout << "Failed sriram " << endl;
+    cout << "did not find harry a a" << endl;
   }
 
-  findCheck = dt.find("the cat");
+
+
+
+
+  findCheck = d_ht.find("aa");
+
+  if (findCheck == true)
+  {
+    cout << "Found harry aa" << endl;
+  }
+  else
+  {
+    cout << "did not find harry aa" << endl;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  findCheck = dt.find("aaa");
+  //if (findCheck == false)
+  if (findCheck == true)
+  {
+    cout << "Passed for aaa" << endl;
+  }
+  else
+  {
+    cout << "Failed aaa " << endl;
+  }
+
+
+
+  findCheck = dt.find("aa a");
+  if (findCheck == true)
+  {
+    cout << "Passed for aa a" << endl;
+  }
+  else
+  {
+    cout << "Failed aa a " << endl;
+  }
+
+  std::vector<string> printVector;
+  printVector = dt.predictCompletions("harry", 1);
+ // int i;
+//  for(i = 0; i < 2; i++) {
+    cout << printVector[0] << endl;
+    //cout << printVector[1] << endl;
+
+  //}//cout << 
+
+  /*findCheck = dt.find("the cat");
   if (findCheck == true)
   {
     cout << "Passed for 'the cat' "<< endl;
@@ -158,7 +231,7 @@ int main(int argc, char** argv)
   {
     cout << "Failed 'cat' " << endl;
   }
-
+*/
   cout << endl;
 
   

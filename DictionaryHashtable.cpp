@@ -1,3 +1,10 @@
+/* 
+ * Authors: Rizwan Khan, Kenton Chick
+ * UCSD Email: rikhan@ucsd.edu, kchick@ucsd.edu
+ * PID: A12236946, A12947178
+ * CSE Login: cs100sgv, kchick
+*/
+
 #include "util.h"
 #include "DictionaryHashtable.h"
 #include <unordered_set>
